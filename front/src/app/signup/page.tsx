@@ -7,8 +7,6 @@ import Checkbox from '@mui/material/Checkbox';
 import Footer from '../components/Footer';
 import Password from '../components/Password';
 import TextField from '@mui/material/TextField';
-
-
 interface SignupProps {
     createUser: (data: any) => Promise<void>;
 }

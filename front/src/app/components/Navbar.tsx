@@ -3,7 +3,7 @@ import logo from "../../../public/img/Logo.jpg"
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import PersonIcon from '@mui/icons-material/Person';
-const Navbar= ()=>{
+const Navbar= ({onClick}:any)=>{
     return(
         <Stack className="px-[240px]" direction="row"   alignItems="center" justifyContent="space-between" paddingTop='14px'
         spacing={2}>
@@ -28,7 +28,7 @@ const Navbar= ()=>{
                 <ShoppingBasketIcon/>
                 <p>Сагс</p>
                 </div>
-                <div className="flex">
+                <div onClick={onClick} className="flex">
                     <PersonIcon/>   
                     <p>Хэрэглэгч</p>
                 </div>

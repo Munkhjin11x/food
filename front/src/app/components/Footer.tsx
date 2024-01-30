@@ -4,7 +4,7 @@ import BackPicture from "../icons/BackPicture";
 export default function Footer(){
     return (
         <div className="bg-[#18BA51] flex flex-col gap-[40px] px-[120px] py-[111px] relative">
-            {/* <BackPicture/> */}
+            <BackPicture/>
             <div className="flex justify-center items-center gap-[8px]">
           
                 <p className="text-[20px] text-white">Food Delivery</p>
