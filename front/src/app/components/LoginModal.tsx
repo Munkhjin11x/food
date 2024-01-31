@@ -1,6 +1,7 @@
 'use client'
 import axios from "axios";
-import Navbar from "../components/Navbar"
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
 import * as React from 'react';
 import IconButton from '@mui/material/IconButton';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -11,7 +12,8 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { useRouter } from "next/navigation";
 import { Button } from "../components/Button";
-const LoginModal = ()=>{
+import { Stack, Typography } from "@mui/material";
+const LoginModal = ({onChange}:any)=>{
     const apiUrl = "http://localhost:8000/users/user";
     const [email, setEmail] = React.useState("")
     const [password, setPassword] = React.useState("");
@@ -42,9 +44,9 @@ const LoginModal = ()=>{
     event.preventDefault();
   };
     return(
-        <div className="bg-black bg-opacity-70 w-full fixed top-0  z-10 flex justify-center items-center">
-<div className="flex flex-col  mt-[111px] items-center w-[400px] bg-white   ">
-<p className="text-center text-[28px] font-bold">Нэвтрэх</p>
+        <Stack onClick={onChange} className="bg-black bg-opacity-70 w-full h-full fixed top-0  z-10 flex justify-center items-center">
+<div className="flex flex-col p-5  mt-[111px] items-center w-[400px] bg-white   ">
+<Typography variant="h5" sx={{fontWeight:'bold',marginTop:"24px"}}>Нэвтрэх</Typography>
 <div className="mt-12">
 <p className="text-[14px] font-normal">Имэйл </p>
     <input type="email" value={email} onChange={(e)=> setEmail(e.target.value)} placeholder="Имэйл хаягаа оруулна уу" className="px-4 w-[352px] h-12 border rounded-sm bg-[#F7F7F8] text-[#8B8E95] "/>
@@ -85,6 +87,6 @@ const LoginModal = ()=>{
     </div>
 
 </div>
-</div>
+</Stack>
 )}
 export default LoginModal

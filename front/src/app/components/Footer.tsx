@@ -1,30 +1,34 @@
 import BackPicture from "../icons/BackPicture";
+import React from 'react' 
+import { Box, Stack } from '@mui/material';
+import Button from '@mui/material/Button';
 
  
-export default function Footer(){
-    return (
-        <div className="bg-[#18BA51] flex flex-col gap-[40px] px-[120px] py-[111px] relative">
-            <BackPicture/>
-            <div className="flex justify-center items-center gap-[8px]">
-          
-                <p className="text-[20px] text-white">Food Delivery</p>
-            </div>
-            <div className="flex justify-between">
-                <p className="text-white text-[16px] underline">Нүүр</p>
-                <p className="text-white text-[16px] underline">Холбоо барих</p>
-                <p className="text-white text-[16px] underline">Хоолны цэс</p>
-                <p className="text-white text-[16px] underline">Үйлчилгээний нөхцөл</p>
-                <p className="text-white text-[16px] underline">Хүргэлтийн бүс</p>
-                <p className="text-white text-[16px] underline">Нууцлалын бодлого</p>
-            </div>
-            <div className="flex gap-[18px] justify-center">
-        
-            </div>
-            <hr className="bg-white w-[1200px]"/>
-            <div className="flex flex-col gap-[8px] items-center">
-                <p className="text-white text-[16px]">© 2024 Pinecone Foods LLC</p>
-                <p className="text-white text-[16px]">Зохиогчийн эрх хуулиар хамгаалагдсан.</p>
-            </div>
-        </div>
-    )
+ 
+const Footer = () => {
+  return (
+    <Stack sx={{ background: "#18BA51", height: 550, width: "screen", padding: 6, flexDirection: "column", alignItems: "center", gap: 5 }}>
+      <BackPicture/>
+      <Box sx={{ flexDirection: "row", width: 200, display: "flex", gap: 2 }}>
+        <Box sx={{ color: 'white', fontSize: 21 }}>Food Delivery</Box>
+      </Box>
+      <Box sx={{ display: "flex", gap: 10 }}>
+        <Button size="medium" sx={{ color: "white" }}>НҮҮР</Button>
+        <Button size="medium" sx={{ color: "white" }}>Холбоо барих</Button>
+        <Button size="medium" sx={{ color: "white" }}>Хоолны цэс</Button>
+        <Button size="medium" sx={{ color: "white" }}>Үйлчилгээний нөхцөл</Button>
+        <Button size="medium" sx={{ color: "white" }}>Хүргэлтийн бүс</Button>
+        <Button size="medium" sx={{ color: "white" }}>Нууцлалын бодлого</Button>
+      </Box>
+      <Box sx={{ flexDirection: "row", gap: 4, display: "flex" }}>
+     
+      </Box>
+      <Box sx={{ color: "white", textAlign: "center", paddingTop: 4, borderTop: 2, width: 1200 }}>
+        <Box>© 2024 Pinecone Foods LLC </Box>
+        <Box>Зохиогчийн эрх хуулиар хамгаалагдсан.</Box>
+      </Box>
+    </Stack>
+  )
 }
+ 
+export default Footer

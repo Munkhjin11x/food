@@ -5,7 +5,7 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import PersonIcon from '@mui/icons-material/Person';
 const Navbar= ({onClick}:any)=>{
     return(
-        <Stack className="px-[240px]" direction="row"   alignItems="center" justifyContent="space-between" paddingTop='14px'
+        <Stack  className="px-[240px]" direction="row"   alignItems="center" justifyContent="space-between" paddingTop='14px'
         spacing={2}>
             <div className="flex gap-6">
             <img className="w-10"  src={logo.src}/>
