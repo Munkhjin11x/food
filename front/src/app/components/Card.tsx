@@ -7,7 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import ImportContactsIcon from '@mui/icons-material/ImportContacts';
-import { Data } from '../constant/data';
+import { Data } from '../constant/Data';
 export default function Cardm() {
     const bull = (
         <Box
@@ -17,25 +17,14 @@ export default function Cardm() {
             •
         </Box>
     );
-        const test = <div></div>
     console.log(Data[0].img)
     return (
         <>
             {Data.map((item, index) => {
-                console.log(item.img)
-                console.log(typeof item.img)
-                console.log(test)
-                console.log(typeof test)
-                const Test = item["img"]
-                if(Test) {
-                    console.log('test')
-                    return <div>
-                        <Test></Test>
-                    </div>
-                }
                 return (
                     <Card key={index} sx={{ minWidth: 275 }}>
                         <CardContent>
+                            <item.img />
                                 {/* <Image src={item.img} alt='img' /> */}
                                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                                 {item.p}
