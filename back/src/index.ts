@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import cors from "cors"
 import { connectDataBase } from "./utils/data";
 import { user } from "./router/user";
+import { food } from "./router/food";
 dotenv.config()
 const start = () => {
     connectDataBase()
@@ -10,6 +11,7 @@ const start = () => {
     app.use(express.json())
     app.use(cors())
      app.use('/users',user)
+     app.use('/foods',food)
     const PORT = process.env.PORT || 8000
     app.get('/', (req, res) => {
         res.status(200).send({ succes: true, msg: "hello" })

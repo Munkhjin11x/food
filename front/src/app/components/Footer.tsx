@@ -30,5 +30,4 @@ const Footer = () => {
     </Stack>
   )
 }
- 
 export default Footer
