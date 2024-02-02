@@ -8,7 +8,7 @@ import { Box, Stack, Typography } from '@mui/material';
 import { Data } from '../constant/Data';
 export default function Cardm() {
     return (
-        <div className='flex gap-10 justify-center  mt-20'>
+        <Box className='flex gap-10 justify-center  mt-20'>
             {Data.map((item, index) => {
                 return (
                     <Card key={index} sx={{ minWidth: 275 }}>
@@ -25,6 +25,6 @@ export default function Cardm() {
                     </Card>
                 )
             })}
-        </div>
+        </Box>
     )
 }

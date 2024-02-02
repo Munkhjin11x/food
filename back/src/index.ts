@@ -4,6 +4,7 @@ import cors from "cors"
 import { connectDataBase } from "./utils/data";
 import { user } from "./router/user";
 import { food } from "./router/food";
+import { category } from "./router/category";
 dotenv.config()
 const start = () => {
     connectDataBase()
@@ -12,6 +13,7 @@ const start = () => {
     app.use(cors())
      app.use('/users',user)
      app.use('/foods',food)
+     app.use('/category',category)
     const PORT = process.env.PORT || 8000
     app.get('/', (req, res) => {
         res.status(200).send({ succes: true, msg: "hello" })

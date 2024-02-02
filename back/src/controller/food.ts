@@ -36,6 +36,17 @@ cloudinary.config({
       res.status(500).json({ error: 'Internal Server Error' });
     }
   };
+  const getFoodId = async (req: Request, res: Response)=>{
+    try {
+      const foodGetId = await foodModel.findById(req.params.id)
+      if (!foodGetId) {
+        return res.status(404).json({error:'food not found'})
+      }
+      res.status(200).json(foodGetId)
+    } catch ( error) {
+      res.status(500).json({error:'aldaa'})
+    }
+  }
   const updateFoodById = async (req: Request, res: Response) => {
     const { foodItemId } = req.params;
     try {
@@ -72,4 +83,4 @@ cloudinary.config({
     }
   };
   
- export {createFood,getAllFood,deleteFoodById,updateFoodById}
+ export {createFood,getAllFood,deleteFoodById,updateFoodById,getFoodId}

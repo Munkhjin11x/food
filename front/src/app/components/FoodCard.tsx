@@ -7,39 +7,39 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
 export default function FoodCard({ food }: any) {
+  console.log(food)
   return (
     <div className='flex flex-wrap  justify-center gap-10'>
-      {food &&
+      {/* {food &&
         food.map((e: any, index: any) => {
-          const discountedPrice = e.price - (e.price * 30) / 100;
+
+          const discountedPrice = e.foodId[0].price - (e.foodId[0].price * 20) / 100;
           return (
             <Card key={index} sx={{ maxWidth: 345 }}>
               <CardActionArea>
                 <CardMedia
-                sx={{borderRadius:'20px',width:'350px',height:'200px'}}
+                  sx={{ borderRadius: '20px', width: '350px', height: '200px' }}
                   component="img"
-               
-                  image={e.image}
+                  image={e.foodId[0].image}
                   alt="food item"
                 />
                 <CardContent>
-                <Typography fontSize={25}>
-                    {e.name}
+                  <Typography fontSize={25}>
+                    {e.foodId[0].name}
                   </Typography>
-                    <Box sx={{display:"flex",gap:'20px', color:'#18BA51'}}>
-                  <Typography gutterBottom variant="h5" component="div">
+                  <Box sx={{ display: "flex", gap: '20px', color: '#18BA51' }}>
+                    <Typography gutterBottom variant="h5" component="div">
                       {discountedPrice.toLocaleString()}₮
-                  </Typography>
-                      <Typography color="text.secondary" sx={{ textDecoration: "line-through" }}>
-                        {e.price.toLocaleString()}₮
-                      </Typography>
-                    </Box>
-            
+                    </Typography>
+                    <Typography color="text.secondary" sx={{ textDecoration: "line-through" }}>
+                      {e.foodId[0].price.toLocaleString()}₮
+                    </Typography>
+                  </Box>
                 </CardContent>
               </CardActionArea>
             </Card>
           );
-        })}
+        })} */}
     </div>
   );
 }
