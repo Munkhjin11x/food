@@ -47,7 +47,7 @@ export default function Home() {
           <LoginModal onChange={modalHandle} />
         )
       }
-    {isLoading ? data : data.map((el:any) => <Category food={el} />)}
+    {isLoading ? data : data.map((el:any) => <Category food={el} isLoading={isLoading} />)}
 
       
       <Cardm />

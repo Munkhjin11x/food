@@ -9,10 +9,6 @@ import { CardActionArea } from '@mui/material';
 export default function FoodCard({ food }: any) {
   console.log(food);
 
-  if (!food || !food.foodId || !food.foodId[0]) {
-    // Handle the case when 'food' or 'food.foodId[0]' is undefined
-    return null;
-  }
 
   const discountedPrice = food.foodId[0].price - (food.foodId[0].price * 20) / 100;
 
