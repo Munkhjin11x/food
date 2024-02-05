@@ -28,7 +28,7 @@ export default function Home() {
   const modalHandle = () => {
     setModal(!modal)
   }
-  
+
 
   return (
     <Stack sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}  >
@@ -47,18 +47,19 @@ export default function Home() {
           <LoginModal onChange={modalHandle} />
         )
       }
-    {isLoading ? data : data.map((el:any) => <Category food={el} isLoading={isLoading} />)}
+      {isLoading ? data : data.map((el: any) =>  <Category food={el} isLoading={isLoading} />
+      )}
 
-      
+
       <Cardm />
-  
+
       <Footer />
     </Stack >
   );
 }
 // const filteredFoodItems = useMemo(data ? data.filter((food: any) =>
-  //    food.name.toLowerCase().includes(searchQuery.toLowerCase())) : null, data)
+//    food.name.toLowerCase().includes(searchQuery.toLowerCase())) : null, data)
 
-  // const filteredFoodItems = data.filter((food: any) =>
-  //   food.name.toLowerCase().includes(searchQuery.toLowerCase())
-  // );
+// const filteredFoodItems = data.filter((food: any) =>
+//   food.name.toLowerCase().includes(searchQuery.toLowerCase())
+// );

@@ -6,11 +6,27 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
-export default function FoodCard({ food }: any) {
-  console.log(food);
+interface FoodCardProps {
+  food: {
+    name: string;
+    price: number;
+    image: string;
+  };
+  foodcate: {
+    name: string;
+  };
+}
 
+export default function FoodCard({ food, foodcate }: FoodCardProps) {
+  const categoryName = foodcate?.name || '';
+  console.log(categoryName);
 
-  const discountedPrice = food.foodId[0].price - (food.foodId[0].price * 20) / 100;
+  const isSalesCategory = categoryName === 'Sales';
+  const discountedPrice = isSalesCategory
+    ? food.price - (food.price * 20) / 100
+    : food.price;
+
+  // console.log(isSalesCategory);
 
   return (
     <div className='flex justify-center gap-10'>
@@ -19,17 +35,17 @@ export default function FoodCard({ food }: any) {
           <CardMedia
             sx={{ borderRadius: '20px', width: '350px', height: '200px' }}
             component="img"
-            image={food.foodId[0].image}
+            image={food.image}
             alt="food item"
           />
           <CardContent>
-            <Typography fontSize={25}>{food.foodId[0].name}</Typography>
+            <Typography fontSize={25}>{food.name}</Typography>
             <Box sx={{ display: 'flex', gap: '20px', color: '#18BA51' }}>
               <Typography gutterBottom variant="h5" component="div">
-                {discountedPrice.toLocaleString()}₮
+                {discountedPrice.toLocaleString() }₮
               </Typography>
               <Typography color="text.secondary" sx={{ textDecoration: 'line-through' }}>
-                {food.foodId[0].price.toLocaleString()}₮
+                { foodcate.name== 'Sales' && `${food.price.toLocaleString()}${'₮'}`}
               </Typography>
             </Box>
           </CardContent>
