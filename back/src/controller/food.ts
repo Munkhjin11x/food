@@ -21,6 +21,7 @@ cloudinary.config({
         ingredient: req.body.ingredient,
         price: req.body.price,
         image: cloudinaryResponse.secure_url,
+        discount:req.body.discount
       });
       res.status(201).json(newFoodItem);
     } catch (error) {

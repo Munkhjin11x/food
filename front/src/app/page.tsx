@@ -5,12 +5,10 @@ import Navbar from './components/Navbar';
 import LoginModal from './components/LoginModal';
 import Footer from './components/Footer';
 import budaa from "../../public/img/Group 534.png"
-import axios from 'axios';
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import BackPicture from "./icons/BackPicture";
 import Cardm from './components/Card';
-import FoodCard from './components/FoodCard';
 import useSWR from 'swr';
 import { useMemo, useState } from 'react';
 import Category from './components/Category';
@@ -28,8 +26,6 @@ export default function Home() {
   const modalHandle = () => {
     setModal(!modal)
   }
-
-
   return (
     <Stack sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}  >
       <Navbar value={searchQuery} onChange={(e: any) => setSearchQuery(e.target.value)} onClick={modalHandle} />
@@ -46,12 +42,12 @@ export default function Home() {
         modal && (
           <LoginModal onChange={modalHandle} />
         )
-      }
-      {isLoading ? data : data.map((el: any) =>  <Category food={el} isLoading={isLoading} />
+      }      <Cardm />
+      {isLoading ? data : data.map((el: any) => <Category food={el} isLoading={isLoading} />
       )}
 
 
-      <Cardm />
+
 
       <Footer />
     </Stack >
@@ -60,6 +56,4 @@ export default function Home() {
 // const filteredFoodItems = useMemo(data ? data.filter((food: any) =>
 //    food.name.toLowerCase().includes(searchQuery.toLowerCase())) : null, data)
 
-// const filteredFoodItems = data.filter((food: any) =>
-//   food.name.toLowerCase().includes(searchQuery.toLowerCase())
-// );
+

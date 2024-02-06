@@ -5,31 +5,25 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-
 interface FoodCardProps {
   food: {
     name: string;
     price: number;
     image: string;
+  discount:number
   };
   foodcate: {
     name: string;
   };
 }
-
 export default function FoodCard({ food, foodcate }: FoodCardProps) {
   const categoryName = foodcate?.name || '';
-  console.log(categoryName);
-
   const isSalesCategory = categoryName === 'Sales';
   const discountedPrice = isSalesCategory
-    ? food.price - (food.price * 20) / 100
+    ? food.price - (food.price * food.discount) / 100
     : food.price;
-
-  // console.log(isSalesCategory);
-
   return (
-    <div className='flex justify-center gap-10'>
+    <div className='flex justify-center gap-10 '>
       <Card sx={{ maxWidth: 345 }}>
         <CardActionArea>
           <CardMedia
@@ -40,7 +34,7 @@ export default function FoodCard({ food, foodcate }: FoodCardProps) {
           />
           <CardContent>
             <Typography fontSize={25}>{food.name}</Typography>
-            <Box sx={{ display: 'flex', gap: '20px', color: '#18BA51' }}>
+            <Box sx={{ display: 'flex', gap: '20px', color: '#18BA51',fontWeight:'600' }}>
               <Typography gutterBottom variant="h5" component="div">
                 {discountedPrice.toLocaleString() }₮
               </Typography>
