@@ -39,7 +39,7 @@ cloudinary.config({
   };
   const getFoodId = async (req: Request, res: Response)=>{
     try {
-      const foodGetId = await foodModel.findById(req.params.id)
+      const foodGetId = await foodModel.findById(req.params.id)                         
       if (!foodGetId) {
         return res.status(404).json({error:'food not found'})
       }

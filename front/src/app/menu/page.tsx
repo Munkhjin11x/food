@@ -1,6 +1,6 @@
 "use client";
-import { Stack } from "@mui/material";
-import React from "react";
+import { Stack, selectClasses } from "@mui/material";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import useSWR from "swr";
 import Category from "../components/Category";
@@ -8,6 +8,7 @@ import CategoryMenu from "../components/CategoryMenu";
 
 export default function Menu() {
   const fetcher = (url: string) => fetch(url).then((r) => r.json());
+  const [category, setCategory] = useState(null)
   const { data, error, isLoading } = useSWR(
     "http://localhost:8000/category",
     fetcher
@@ -20,11 +21,15 @@ export default function Menu() {
         flexDirection={"row"}
         sx={{ justifyContent: "center" }}
       >
-        {isLoading
+
+        {
+          !isLoading && <CategoryMenu food={data} selectedCategory={category} setSelectedCategory={setCategory} />
+        }
+        {/* {isLoading
           ? data
           : data.map((el: any) => (
-              <CategoryMenu food={el} />
-            ))}
+            
+          ))} */}
       </Stack>
     </Stack>
   );
