@@ -21,8 +21,6 @@ export default function Home() {
 
   const fetcher = (url: string) => fetch(url).then(r => r.json())
   const { data, error, isLoading } = useSWR('http://localhost:8000/category', fetcher)
-
-
   const modalHandle = () => {
     setModal(!modal)
   }

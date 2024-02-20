@@ -52,16 +52,18 @@ export default function CategoryMenu({ food, selectedCategory, setSelectedCatego
           ))
         }
       </Stack>
-      <Box sx={{ display: "flex", marginTop: "100px" }}>
+      <Box sx={{ display: "flex", marginTop: "100px" ,flexWrap:'wrap' }}>
         {
           !selectedCategory && !isLoading && (
-            data.map(e => <FoodCard key={e.id} food={e} foodcate={food} />)
+            data.map(e => <FoodCard onClick={ modalHandle} key={e.id} food={e} foodcate={food} />)
           )
         }
-        {  selectedCategory && filteredFood && filteredFood?.foodId?.map(e => <FoodCard onClick={() => modalHandle} key={e.id} food={e} foodcate={food} />) }
+        {  selectedCategory && filteredFood && filteredFood?.foodId?.map(e => <FoodCard onClick={ modalHandle} key={e.id} food={e} foodcate={food} />) }
       </Box>
       {modal&&(
+        <>
         <FoodModal/>
+        </>
       )}
     </Stack>
   );

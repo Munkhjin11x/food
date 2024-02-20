@@ -10,6 +10,7 @@ cloudinary.config({
     api_key: '665393682697878',
     api_secret: 'yXGtzGT06vdq1qenfrW5MRC3OlI',
   });
+
   const createFood = async (req: Request, res: Response) => {
     try {
       const cloudinaryResponse = await cloudinary.uploader.upload(req.body.image, {
@@ -29,17 +30,21 @@ cloudinary.config({
       res.status(500).json({ error: 'Internal Server Error' });
     }
   };
+
   const getAllFood = async (req: Request, res: Response) => {
     try {
       const allFoodItems = await foodModel.find();
+
       res.status(200).json(allFoodItems);
     } catch (error) {
       res.status(500).json({ error: 'Internal Server Error' });
     }
   };
+
   const getFoodId = async (req: Request, res: Response)=>{
     try {
-      const foodGetId = await foodModel.findById(req.params.id)                         
+      const foodGetId = await foodModel.findById(req.params.id)    
+
       if (!foodGetId) {
         return res.status(404).json({error:'food not found'})
       }

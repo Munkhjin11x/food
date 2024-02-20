@@ -10,13 +10,18 @@ dotenv.config()
 const start = () => {
     connectDataBase()
     const app = express()
+
     app.use(express.json())
+
     app.use(cors())
-     app.use('/users',user)
-     app.use('/foods',food)
-     app.use('/category',category)
-     app.use('/',order)
+
+    app.use('/users', user)
+    app.use('/foods', food)
+    app.use('/category', category)
+    app.use('/', order)
+
     const PORT = process.env.PORT || 8000
+
     app.get('/', (req, res) => {
         res.status(200).send({ succes: true, msg: "hello" })
     })
