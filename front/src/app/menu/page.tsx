@@ -21,14 +21,12 @@ export default function Menu() {
         flexDirection={"row"}
         sx={{ justifyContent: "center" }}
       >
-
         {
           !isLoading && <CategoryMenu food={data} selectedCategory={category} setSelectedCategory={setCategory} />
         }
         {/* {isLoading
           ? data
           : data.map((el: any) => (
-            
           ))} */}
       </Stack>
     </Stack>

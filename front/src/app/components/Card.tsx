@@ -8,6 +8,7 @@ import { Box, Stack, Typography } from '@mui/material';
 import { Data } from '../constant/Data';
 export default function Cardm() {
     return (
+        
         <Box className='flex gap-10 justify-center  mt-[140px]'>
             {Data.map((item, index) => {
                 return (
@@ -21,7 +22,6 @@ export default function Cardm() {
                                 {item.p1}
                             </Typography>
                         </CardContent>
-                 
                     </Card>
                 )
             })}
