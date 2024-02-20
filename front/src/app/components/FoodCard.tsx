@@ -16,15 +16,15 @@ interface FoodCardProps {
     name: string;
   };
 }
-export default function FoodCard({ food, foodcate }: FoodCardProps) {
+export default function FoodCard({ food, foodcate, onClick }: any) {
   const categoryName = foodcate?.name || "";
   const isSalesCategory = categoryName === "Sales";
   const discountedPrice = isSalesCategory
     ? food.price - (food.price * food.discount) / 100
     : food.price;
   return (
-    <div className="flex justify-center gap-10 ">
-      <Card sx={{ maxWidth: 345 }}>
+    <div className="flex justify-center gap-10 " onClick={onClick}>
+      <Card  sx={{ maxWidth: 345 }}>
         <CardActionArea>
           <CardMedia
             sx={{ borderRadius: "20px", width: "350px", height: "200px" }}

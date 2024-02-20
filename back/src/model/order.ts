@@ -6,10 +6,17 @@ const OrderSchema  = new mongoose.Schema({
         require:true
     },
     orderNumber:Number,
-    foods:Array,
+    foods: [
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'food'
+        }
+      ],
     totalPrice:Number,
     process:{
-        enum:['ordered', 'inprogress','delivered']
+        type:String,
+        enum:['ordered', 'inprogress','delivered'],
+        default:'inprogress'
     },
     createdDate:Date,
     district:String,
