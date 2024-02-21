@@ -14,7 +14,6 @@ const createCategory = async (req: Request, res: Response): Promise<void> => {
 
       if (existingCategory) {
         existingCategory.foodId.push(...foodIdsAsObjectIds);
-
         const updatedCategory = await existingCategory.save();
 
         res.status(200).json(updatedCategory);

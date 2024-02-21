@@ -5,6 +5,9 @@ import logo from "../../../public/img/Logo.jpg"
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import PersonIcon from '@mui/icons-material/Person';
+import { useContext } from "react";
+import { FoodContext } from "./Context";
+// import { CartContext } from "./Context";
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -46,6 +49,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 const Navbar = ({ onClick, onChange, value }: any) => {
+  const cart = useContext(FoodContext)
+  const handler = () =>   console.log(cart.foodData)
 
   return (
     <Stack className="px-[240px] py-3" direction="row" alignItems="center" justifyContent="space-between" paddingTop='14px'
@@ -71,7 +76,7 @@ const Navbar = ({ onClick, onChange, value }: any) => {
             />
           </Search>
         </Box>
-        <Button size="medium" sx={{ color: "black", ":hover": { color: '#18BA51' } }} className="flex">
+        <Button onClick={handler} size="medium" sx={{ color: "black", ":hover": { color: '#18BA51' } }} className="flex">
           <ShoppingBasketIcon />
           <Typography>Сагс</Typography>
         </Button>

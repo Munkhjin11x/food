@@ -24,6 +24,9 @@ export default function Home() {
   const modalHandle = () => {
     setModal(!modal)
   }
+  const storedEmail = (localStorage.getItem('data'));
+  const result = storedEmail ? JSON.parse(storedEmail):undefined
+    console.log(result)
   return (
     <Stack sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}  >
       <Navbar value={searchQuery} onChange={(e: any) => setSearchQuery(e.target.value)} onClick={modalHandle} />

@@ -1,9 +1,21 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { ReactNode, useContext, useEffect, useState } from "react";
+import { FoodContext } from "./Context";
+
 
 function FoodModal({ foodCardId, food, onClick }: any) {
   const [count, setCount] = useState(1);
-  const selectedFood = food.find((item: any) => item._id === foodCardId);
+  const { addToCart, foodData }:any = useContext(FoodContext);
+  const selectedFood = food.find((item:any) => item._id === foodCardId);
+  const cardHandler = () => {
+    const foodItem = {
+      selectedFood,
+      count
+    };
+    addToCart(foodItem);
+    console.log(foodData)
+  };
+
   const decrementCount = () => {
     if (count > 1) {
       setCount(count - 1);
@@ -13,7 +25,7 @@ function FoodModal({ foodCardId, food, onClick }: any) {
   const incrementCount = () => {
     setCount(count + 1);
   };
-
+ 
   return (
     <Stack className="bg-black bg-opacity-70 w-full h-full fixed top-0  z-10 flex justify-center items-center">
       <Box className="flex flex-col p-5  mt-[111px] items-center  bg-white ">
@@ -39,7 +51,7 @@ function FoodModal({ foodCardId, food, onClick }: any) {
                 <Typography>{count}</Typography>
                 <Button onClick={incrementCount}>+</Button>
               </Box>
-              <Button>add to card</Button>
+              <Button onClick={cardHandler}>add to card</Button>
             </Stack>
           </Stack>
         )}
