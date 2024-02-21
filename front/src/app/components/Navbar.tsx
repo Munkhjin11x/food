@@ -50,8 +50,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const Navbar = ({ onClick, onChange, value }: any) => {
   const cart = useContext(FoodContext)
-  const handler = () =>   console.log(cart.foodData)
-
   return (
     <Stack className="px-[240px] py-3" direction="row" alignItems="center" justifyContent="space-between" paddingTop='14px'
       spacing={2}>
@@ -76,7 +74,7 @@ const Navbar = ({ onClick, onChange, value }: any) => {
             />
           </Search>
         </Box>
-        <Button onClick={handler} size="medium" sx={{ color: "black", ":hover": { color: '#18BA51' } }} className="flex">
+        <Button onClick={onClick} size="medium" sx={{ color: "black", ":hover": { color: '#18BA51' } }} className="flex">
           <ShoppingBasketIcon />
           <Typography>Сагс</Typography>
         </Button>

@@ -1,10 +1,16 @@
-import { Stack } from '@mui/material'
-import React from 'react'
+import React, { useContext } from "react";
+import { FoodContext } from "./Context";
+import { Stack } from "@mui/material";
 
 export default function CardModal() {
+  const { foodData } = useContext(FoodContext);
+
   return (
-   <Stack>
-    hi
-   </Stack>
-  )
+    <Stack>
+      {foodData &&
+        foodData.map((foodItem, index) => (
+          <div>{foodItem.selectedFood.name}</div>
+        ))}
+    </Stack>
+  );
 }
