@@ -35,7 +35,7 @@ export default function Menu() {
               setSelectedCategory={setCategory}
             />
           )}
-          {modal && <CardModal />}
+          {modal && <CardModal onClick={modalHandle} />}
         </Stack>
       </Stack>
     </FoodProvider>

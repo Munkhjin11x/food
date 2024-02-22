@@ -31,27 +31,37 @@ function FoodModal({ foodCardId, food, onClick }: any) {
       <Box className="flex flex-col p-5  mt-[111px] items-center  bg-white ">
         {selectedFood && (
           <Stack padding={5} display={"flex"} direction={"row"} gap={5}>
-            <img src={selectedFood.image} />
-            <Stack>
+            <img className="w-[500px] h-[500px]" src={selectedFood.image} />
+            <Stack display={'flex'} justifyContent={'space-between'} >
+        
+              <Box key={selectedFood.id}>
               <Typography
-                sx={{ fontSize: "18px", fontWeight: "400" }}
-                onClick={onClick}
-              >
+                sx={{ fontSize: "24px", fontWeight: "400",cursor:'pointer',textAlign:"end" }}
+                onClick={onClick} >
                 x
               </Typography>
-              <Box key={selectedFood.id}>
                 <Typography sx={{ fontWeight: "800", fontSize: "24px" }}>
                   {selectedFood.name}
                 </Typography>
+          
+                <Typography sx={{ fontWeight: "600", fontSize: "20px",color:'#18BA51' }}>
+                  {selectedFood.price}₮
+                </Typography>
+                <Typography sx={{ fontWeight: "800", fontSize: "18px" }}>
+                Орц
+                </Typography>
                 <Typography> {selectedFood.ingredient}</Typography>
               </Box>
-
-              <Box display={"flex"}>
-                <Button onClick={decrementCount}>-</Button>
+              <Box>
+              <Typography> Тоо</Typography>
+              <Box display={"flex"} gap={15}>
+                <Button className=" bg-[#18BA51] text-white"  onClick={decrementCount}>-</Button>
                 <Typography>{count}</Typography>
-                <Button onClick={incrementCount}>+</Button>
+                <Button className=" bg-[#18BA51] text-white"  onClick={incrementCount}>+</Button>
               </Box>
-              <Button onClick={cardHandler}>add to card</Button>
+              <Button className=" bg-[#18BA51]"    sx={{ color: "white", ":hover": { color: '#18BA51' }, background:'green',width:'379px' }} onClick={cardHandler}>add to card</Button>
+              </Box>
+       
             </Stack>
           </Stack>
         )}

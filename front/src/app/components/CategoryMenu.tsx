@@ -17,9 +17,7 @@ export default function CategoryMenu({
     "http://localhost:8000/foods/food",
     fetcher
   );
-  if (food.name === "Sales") {
-    return null;
-  }
+
   const handleCategoryClick = (categoryName: string) => {
     const filtered = food.filter((e) => e.name === categoryName);
     setFilteredFood(filtered[0]);
@@ -27,33 +25,36 @@ export default function CategoryMenu({
       prevCategory === categoryName ? null : categoryName
     );
   };
+  
   const modalHandle = (foodId) => {
     setSelectedFoodCardId(foodId);
     setModal(!modal);
   };
-  console.log(filteredFood);
+
   return (
     <Stack>
-      <Stack direction="row" gap={2}>
-        {food.map((f: any) => (
-          <Button
-            key={f.id}
-            sx={{
-              color: "black",
-              border: "solid",
-              borderWidth: "1px",
-              width: "200px",
-            }}
-            style={{
-              background: selectedCategory === f.name ? "#18BA51" : "",
-            }}
-            onClick={() => handleCategoryClick(f.name)}
-          >
-            {f.name}
-          </Button>
-        ))}
+      <Stack display={'flex'} justifyContent={"center"} direction="row" gap={2}>
+        {food
+          .filter((f) => f.name !== "Sales") 
+          .map((f: any) => (
+            <Button
+              key={f.id}
+              sx={{
+                color: "black",
+                border: "solid",
+                borderWidth: "1px",
+                width: "200px",
+              }}
+              style={{
+                background: selectedCategory === f.name ? "#18BA51" : "",
+              }}
+              onClick={() => handleCategoryClick(f.name)}
+            >
+              {f.name}
+            </Button>
+          ))}
       </Stack>
-      <Box sx={{ display: "flex", marginTop: "100px", flexWrap: "wrap" }}>
+      <Box sx={{ display: "flex", marginTop: "100px", flexWrap: "wrap", justifyContent:'center' }}>
         {!selectedCategory &&
           !isLoading &&
           data.map((e) => (
