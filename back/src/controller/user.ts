@@ -2,6 +2,7 @@
 import { Request, Response } from "express";
 import { userModel } from "../model/user";
 import bcrypt from "bcrypt"
+import jwt from 'jsonwebtoken'
 
 const createUser = async (req:Request, res:Response) => {
     try {
@@ -30,7 +31,6 @@ const getAllUsers = async (req:Request, res:Response) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
-
 const login = async (req: Request, res: Response) => {
     try {
       const { email, password } = req.body;
