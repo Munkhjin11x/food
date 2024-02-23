@@ -38,7 +38,7 @@ const Signup: React.FC<SignupProps> = ({ createUser }) => {
 
         try {
             const response = await axios.post('http://localhost:8000/users', formData);
-            console.log(response.status)
+            console.log(response)
             if (response.status === 201) {
                 setFormData({
                     name: '',
@@ -49,7 +49,7 @@ const Signup: React.FC<SignupProps> = ({ createUser }) => {
                 });
                 setError(null);
             } else {
-                setError('Failed to create user. Please try again.');
+                setError('Failed to create user. Please try asgain.');
             }
         } catch (error) {
             console.error(error);

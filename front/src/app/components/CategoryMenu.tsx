@@ -30,7 +30,7 @@ export default function CategoryMenu({
     setSelectedFoodCardId(foodId);
     setModal(!modal);
   };
-  
+  console.log(filteredFood)
   return (
     <Stack>
       <Stack display={'flex'} justifyContent={"center"} direction="row" gap={2}>

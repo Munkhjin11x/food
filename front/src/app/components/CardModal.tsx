@@ -1,11 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FoodContext } from "./Context";
 import { Box, Stack, Button, Typography } from "@mui/material";
+import { useRouter } from "next/navigation";
+  
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 export default function CardModal({onClick}:any) {
   const { foodData, updateFoodData } = useContext(FoodContext);
+  const router = useRouter()
   const increaseCount = (index) => {
     const updatedFoodData = [...foodData];
     updatedFoodData[index].count++;
@@ -25,6 +28,11 @@ export default function CardModal({onClick}:any) {
     });
     return totalPrice;
   };
+  console.log(foodData)
+  const order = ()=>{
+
+    history.push('/order');
+  }
   return (
     <Stack className="bg-black bg-opacity-70 w-full h-full fixed top-0  z-10 flex justify-center items-center">
       <Stack className="flex justify-between flex-col p-5 items-center h-full fixed top-0 right-0  bg-white ">
@@ -53,10 +61,7 @@ export default function CardModal({onClick}:any) {
                   <Button className=" bg-[#18BA51] text-white" onClick={() => increaseCount(index)}>+</Button>
                 </Box>
                   </Box>
-              
                 </CardContent>
-          
-
               </Card>
             ))}
         </Stack>
@@ -70,7 +75,7 @@ export default function CardModal({onClick}:any) {
               <Typography >
               </Typography>
             </Box>
-            <Button>Захиалах</Button>
+            <Button onClick={order}>Захиалах</Button>
           </CardContent>
         </Card>
       </Stack>
