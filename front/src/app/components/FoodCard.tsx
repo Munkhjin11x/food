@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Skeleton } from "@mui/material";
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -23,8 +23,9 @@ export default function FoodCard({ food, foodcate, onClick }: any) {
     ? food.price - (food.price * food.discount) / 100
     : food.price;
   return (
-    <div className="flex justify-center gap-10 " onClick={onClick}>
-      <Card  sx={{ maxWidth: 345 }}>
+    <div className="flex  gap-10 " onClick={onClick}>
+      <Card sx={{ maxWidth: 345 }}>
+    
         <CardActionArea>
           <CardMedia
             sx={{ borderRadius: "20px", width: "350px", height: "200px" }}
@@ -61,6 +62,7 @@ export default function FoodCard({ food, foodcate, onClick }: any) {
           </CardContent>
         </CardActionArea>
       </Card>
+    
     </div>
   );
 }

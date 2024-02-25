@@ -20,9 +20,9 @@ export default function Menu() {
     setModal(!modal);
   };
   return (
-    <FoodProvider>
+
       <Stack display={"flex"} justifyContent={"center"}>
-        <Navbar onClick={modalHandle} />
+        <Navbar orderClick={modalHandle} />
         <Stack
           display={"flex"}
           flexDirection={"row"}
@@ -38,6 +38,5 @@ export default function Menu() {
           {modal && <CardModal onClick={modalHandle} />}
         </Stack>
       </Stack>
-    </FoodProvider>
   );
 }

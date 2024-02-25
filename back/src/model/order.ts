@@ -20,8 +20,8 @@ const OrderSchema  = new mongoose.Schema({
     },
     createdDate:Date,
     district:String,
-    Khoroo:String,
-    Apartment:String
+    khoroo:String,
+    apartment:String
 })
 const orderModel = mongoose.model('order',OrderSchema)
 export {orderModel}

@@ -1,25 +1,30 @@
-'use client'
-import { Stack } from '@mui/material'
-import { useContext, useState } from 'react'
-import { FoodContext, FoodProvider } from '../components/Context'
-import Test from '../components/Test'
-import useSWR from 'swr'
-import Navbar from '../components/Navbar'
-import { useRouter } from 'next/navigation'
+"use client";
+import { Box, Stack } from "@mui/material";
+import { useContext, useState } from "react";
+import { FoodContext, FoodProvider } from "../components/Context";
+import OrderFood from "../components/Test";
+import useSWR from "swr";
+import Navbar from "../components/Navbar";
+import { useRouter } from "next/navigation";
+import OrderDetail from "../components/OrderDetail";
+import { OrderProvider } from "../components/OrderContext";
+import axios from "axios";
 
 function order() {
-    const fetcher = (url: string) => fetch(url).then((r) => r.json());
-    const [category, setCategory] = useState(null);
-    const { foodData,updateFoodData }  = useContext(FoodContext)
+  const store = JSON.parse(localStorage.getItem("data") as any);
+  console.log(store, "s");
 
   return (
-   <FoodProvider>
+    <OrderProvider>
       <Stack display={"flex"} justifyContent={"center"}>
-      <Navbar/>
-          <Test/>
+        <Navbar />
+        <Box sx={{ display: "flex", justifyContent: "center" }}>
+          <OrderDetail />
+          <OrderFood data={store} />
+        </Box>
       </Stack>
-      </FoodProvider>
-  )
+    </OrderProvider>
+  );
 }
 
-export default order
+export default order;

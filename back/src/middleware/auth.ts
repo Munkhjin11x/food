@@ -38,7 +38,6 @@ const loginMiddleware = async (req: Request, res: Response, next: NextFunction) 
     if (typeof password !== 'string') {
       return res.status(500).json({ message: 'Invalid password format' });
     }
-
     next()
   } catch (error) {
     console.error(error);

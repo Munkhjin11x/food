@@ -1,64 +1,84 @@
-import { Box, Button, Stack, Typography } from "@mui/material"
-import { styled, alpha } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
-import logo from "../../../public/img/Logo.jpg"
-import SearchIcon from '@mui/icons-material/Search';
-import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
-import PersonIcon from '@mui/icons-material/Person';
+import { Box, Button, Stack, Typography } from "@mui/material";
+import { styled, alpha } from "@mui/material/styles";
+import InputBase from "@mui/material/InputBase";
+import logo from "../../../public/img/Logo.jpg";
+import SearchIcon from "@mui/icons-material/Search";
+import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import PersonIcon from "@mui/icons-material/Person";
 import { useContext } from "react";
 import { FoodContext } from "./Context";
-// import { CartContext } from "./Context";
 
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
+const Search = styled("div")(({ theme }) => ({
+  position: "relative",
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
+  "&:hover": {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
+  width: "100%",
+  [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(3),
-    width: 'auto',
+    width: "auto",
   },
 }));
-const SearchIconWrapper = styled('div')(({ theme }) => ({
+const SearchIconWrapper = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+  height: "100%",
+  position: "absolute",
+  pointerEvents: "none",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
+  color: "inherit",
+  "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
+    transition: theme.transitions.create("width"),
+    width: "100%",
+    [theme.breakpoints.up("md")]: {
+      width: "20ch",
     },
   },
 }));
 
-
-const Navbar = ({ onClick, onChange, value }: any) => {
-  const cart = useContext(FoodContext)
+const Navbar = ({ onClick, onChange, value, orderClick }: any) => {
+  const cart = useContext(FoodContext);
   return (
-    <Stack className="px-[240px] py-3" direction="row" alignItems="center" justifyContent="space-between" paddingTop='14px'
-      spacing={2}>
+    <Stack
+      className="px-[240px] py-3"
+      direction="row"
+      alignItems="center"
+      justifyContent="space-between"
+      paddingTop="14px"
+      spacing={2}
+    >
       <Box className="flex gap-6">
         <img className="w-10" src={logo.src} />
         <Box className="flex gap-2">
-          <Button size="medium" sx={{ color: "black", ":hover": { color: '#18BA51' } }}>НҮҮР</Button>
-          <Button size="medium" sx={{ color: "black", ":hover": { color: '#18BA51' } }}> Хоолны цэс</Button>
-          <Button size="medium" sx={{ color: "black", ":hover": { color: '#18BA51' } }}>Хүргэлтийн бүс</Button>
+          <Button
+            size="medium"
+            sx={{ color: "black", ":hover": { color: "#18BA51" } }}
+          >
+            НҮҮР
+          </Button>
+          <Button
+            size="medium"
+            sx={{ color: "black", ":hover": { color: "#18BA51" } }}
+          >
+            {" "}
+            Хоолны цэс
+          </Button>
+          <Button
+            size="medium"
+            sx={{ color: "black", ":hover": { color: "#18BA51" } }}
+          >
+            Хүргэлтийн бүс
+          </Button>
         </Box>
       </Box>
       <Box className="flex gap-2">
@@ -68,23 +88,33 @@ const Navbar = ({ onClick, onChange, value }: any) => {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              value={value} onChange={onChange}
+              value={value}
+              onChange={onChange}
               placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
+              inputProps={{ "aria-label": "search" }}
             />
           </Search>
         </Box>
-        <Button onClick={onClick} size="medium" sx={{ color: "black", ":hover": { color: '#18BA51' } }} className="flex">
+        <Button
+          onClick={orderClick}
+          size="medium"
+          sx={{ color: "black", ":hover": { color: "#18BA51" } }}
+          className="flex"
+        >
           <ShoppingBasketIcon />
           <Typography>Сагс</Typography>
         </Button>
-        <Button onClick={onClick} size="medium" sx={{ color: "black", ":hover": { color: '#18BA51' } }} className="flex">
+        <Button
+          onClick={onClick}
+          size="medium"
+          sx={{ color: "black", ":hover": { color: "#18BA51" } }}
+          className="flex"
+        >
           <PersonIcon />
           <Typography>Хэрэглэгч</Typography>
         </Button>
-
       </Box>
     </Stack>
-  )
-}
-export default Navbar
+  );
+};
+export default Navbar;

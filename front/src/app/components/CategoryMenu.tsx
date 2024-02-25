@@ -25,17 +25,17 @@ export default function CategoryMenu({
       prevCategory === categoryName ? null : categoryName
     );
   };
-  
+
   const modalHandle = (foodId) => {
     setSelectedFoodCardId(foodId);
     setModal(!modal);
   };
-  console.log(filteredFood)
+  console.log(filteredFood);
   return (
     <Stack>
-      <Stack display={'flex'} justifyContent={"center"} direction="row" gap={2}>
+      <Stack display={"flex"} justifyContent={"center"} direction="row" gap={2}>
         {food
-          .filter((f) => f.name !== "Sales") 
+          .filter((f) => f.name !== "Sales")
           .map((f: any) => (
             <Button
               key={f.id}
@@ -54,7 +54,14 @@ export default function CategoryMenu({
             </Button>
           ))}
       </Stack>
-      <Box sx={{ display: "flex", marginTop: "100px", flexWrap: "wrap", justifyContent:'center' }}>
+      <Box
+        sx={{
+          display: "flex",
+          marginTop: "100px",
+          flexWrap: "wrap",
+          justifyContent: "center",
+        }}
+      >
         {!selectedCategory &&
           !isLoading &&
           data.map((e) => (
@@ -76,7 +83,13 @@ export default function CategoryMenu({
             />
           ))}
       </Box>
-      {modal && <FoodModal onClick={modalHandle} food={data} foodCardId={selectedFoodCardId} />}
+      {modal && (
+        <FoodModal
+          onClick={modalHandle}
+          food={data}
+          foodCardId={selectedFoodCardId}
+        />
+      )}
     </Stack>
   );
 }
