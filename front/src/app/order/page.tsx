@@ -8,17 +8,14 @@ import Navbar from "../components/Navbar";
 import { useRouter } from "next/navigation";
 import OrderDetail from "../components/OrderDetail";
 import { OrderProvider } from "../components/OrderContext";
-import axios from "axios";
 
 function order() {
   const store = JSON.parse(localStorage.getItem("data") as any);
-  console.log(store, "s");
-
   return (
     <OrderProvider>
       <Stack display={"flex"} justifyContent={"center"}>
         <Navbar />
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Box sx={{ display: "flex", justifyContent: "space-around", }}>
           <OrderDetail />
           <OrderFood data={store} />
         </Box>

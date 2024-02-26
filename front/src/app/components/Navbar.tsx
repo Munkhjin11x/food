@@ -1,3 +1,4 @@
+'use client'
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
@@ -7,6 +8,7 @@ import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import PersonIcon from "@mui/icons-material/Person";
 import { useContext } from "react";
 import { FoodContext } from "./Context";
+import { useRouter } from "next/navigation";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -48,6 +50,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const Navbar = ({ onClick, onChange, value, orderClick }: any) => {
   const cart = useContext(FoodContext);
+  const router = useRouter() 
   return (
     <Stack
       className="px-[240px] py-3"
@@ -61,12 +64,15 @@ const Navbar = ({ onClick, onChange, value, orderClick }: any) => {
         <img className="w-10" src={logo.src} />
         <Box className="flex gap-2">
           <Button
+          onClick={()=>router.push('/')}
             size="medium"
             sx={{ color: "black", ":hover": { color: "#18BA51" } }}
           >
             НҮҮР
           </Button>
           <Button
+          onClick={()=>router.push('/menu')}
+
             size="medium"
             sx={{ color: "black", ":hover": { color: "#18BA51" } }}
           >

@@ -17,11 +17,13 @@ const OrderSchema  = new mongoose.Schema({
         type:String,
         enum:['ordered', 'inprogress','delivered'],
         default:'inprogress'
-    },
+    },  
     createdDate:Date,
     district:String,
     khoroo:String,
-    apartment:String
+    apartment:String,
+    phone:Number,
+    desc:String
 })
 const orderModel = mongoose.model('order',OrderSchema)
 export {orderModel}

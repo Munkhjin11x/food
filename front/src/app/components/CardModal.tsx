@@ -28,7 +28,6 @@ export default function CardModal({ onClick }: any) {
     });
     return totalPrice;
   };
-  console.log(foodData);
   const order = () => {
     router.push("/order");
     localStorage.setItem("data", JSON.stringify(foodData));
