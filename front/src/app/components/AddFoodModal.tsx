@@ -26,7 +26,6 @@ const AddFoodModal = () => {
     try {
       const response = await axios.post("http://localhost:8000/foods", food); // Updated endpoint to add food
       console.log("Food added successfully:", response.data);
-      // Optionally, you can reset the input fields after adding
       setFood({
         name: "",
         image: "",
