@@ -11,7 +11,7 @@ const createOrder = async (req: Request, res: Response) => {
 };
 const getAllOrders = async (req: Request, res: Response) => {
     try {
-        const orders = await orderModel.find();
+        const orders = await orderModel.find().populate('userid');
         res.status(200).json(orders);
     } catch (error) {
         res.status(500).json({ error });
