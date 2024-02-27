@@ -13,7 +13,8 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useRouter } from "next/navigation";
 import { Button } from "../components/Button";
 import { Stack, Typography } from "@mui/material";
-import { setCookie } from "nookies";
+
+import cookies from 'js-cookie'
 import jwt from "jsonwebtoken";
 
 const LoginModal = ({ onClick }: any) => {
@@ -35,14 +36,15 @@ const LoginModal = ({ onClick }: any) => {
       const token = data.token;
       const code = jwt.decode(token);
       console.log(code);
+      console.log(token)
       if (token) {
-        setCookie(null, "token", token, {
-          maxAge: 3600,
-        });
+        cookies.set('token', token.toString(), { expires: 7 })
+        console.log(cookies)
         if (code.payload.role === "admin") {
           router.push("/adminDashboard");
         } else {
           router.push(`/?email${code.payload.email}`);
+          cookies.set('token', token.toString(), { expires: 7 })
           onClick(false)
         }
       } else {

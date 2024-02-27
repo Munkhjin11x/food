@@ -2,7 +2,7 @@ import { Box, Stack, Typography } from '@mui/material'
 import React from 'react'
 import Brightness1RoundedIcon from '@mui/icons-material/Brightness1Rounded';
 
-function Step({children,step,all}:any) {
+function Step({children,step,all,order}:any) {
   return (
     <Stack display={'flex'} direction={'row'} alignItems={'center'}>
 <Brightness1RoundedIcon sx={{width:'24px',height:'24px', color:all ? '#18BA51':'#0468C8'}}/>
@@ -14,8 +14,12 @@ function Step({children,step,all}:any) {
     {children}
 </Typography>
 <Typography>
+         Захиалга#<span>{order}</span> 
+</Typography>
+<Typography>
 Хүлээгдэж байна
 </Typography>
+
         </Box>
     </Stack>
   )

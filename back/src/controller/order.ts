@@ -17,6 +17,7 @@ const getAllOrders = async (req: Request, res: Response) => {
         res.status(500).json({ error });
     }
 };
+
 const getOrderById = async (req: Request, res: Response) => {
     const { id } = req.params;
     try {
@@ -57,4 +58,15 @@ const deleteOrder = async (req: Request, res: Response) => {
     }
 };
 
-export { createOrder, getAllOrders, getOrderById, updateOrder, deleteOrder }
+
+const getOrderByUserId = async (req: Request, res: Response) => {
+    try {
+        const { userId } = req.params;
+        const orders = await orderModel.find({ userid: userId }).populate('foods');
+        res.status(200).json(orders);
+    } catch (error) {
+        res.status(500).json({ error });
+    }
+};
+
+export { createOrder, getAllOrders, getOrderById, updateOrder, deleteOrder, getOrderByUserId }
