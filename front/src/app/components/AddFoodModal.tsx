@@ -6,10 +6,10 @@ import axios from "axios";
 const AddFoodModal = () => {
   const [food, setFood] = useState({
     name: "",
-    image: "", 
+    image: "",
     ingredient: "",
     price: "",
-    discount: 0, 
+    discount: 0,
     category: "",
   });
 
@@ -23,8 +23,7 @@ const AddFoodModal = () => {
 
   const addFoodHandler = async () => {
     try {
-      const response = await axios.post("http://localhost:8000/foods", food); // Updated endpoint to add food
-      console.log("Food added successfully:", response.data);
+      const response = await axios.post("http://localhost:8000/foods", food);
       setFood({
         name: "",
         image: "",
@@ -34,7 +33,7 @@ const AddFoodModal = () => {
         category: "",
       });
     } catch (error) {
-      console.error("Error adding food:", error);
+      console.error(error);
     }
   };
 
@@ -88,16 +87,13 @@ const AddFoodModal = () => {
           }
           className="px-[12px] border-solid border-[1px]"
         />
-           <input
-              type="text"
-              placeholder="Хоолны зурагны URL"
-              color="#8B8E95"
-              width={587}
-              onChange={(e) =>
-                setFood( { ...food, image: e.target.value })
-              }
-            
-            />
+        <input
+          type="text"
+          placeholder="Хоолны зурагны URL"
+          color="#8B8E95"
+          width={587}
+          onChange={(e) => setFood({ ...food, image: e.target.value })}
+        />
         <Box sx={{ display: "flex", justifyContent: "end" }}>
           <Button
             className="bg-black"
