@@ -35,7 +35,7 @@ export default function CategoryMenu({
     <Stack>
       <Stack display={"flex"} justifyContent={"center"} direction="row" gap={2}>
         {food
-          .filter((f) => f.name !== "Sales")
+          // .filter((f) => f.name !== "Sales")
           .map((f: any) => (
             <Button
               key={f.id}

@@ -31,7 +31,7 @@ const historyPage = () => {
       <Navbar />
       <Box sx={{display:'flex'}}>
         {data && data.map((foodItem, index) => (
-          <Stack sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+          <Stack >
             <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'row', justifyContent: 'space-around', width: '384px', padding: '16px' }}  >
               <Box >
                 <Step order={foodItem.orderNumber} />

@@ -16,6 +16,7 @@ export default function Menu() {
     "http://localhost:8000/category",
     fetcher
   );
+  console.log(data)
   const modalHandle = () => {
     setModal(!modal);
   };
