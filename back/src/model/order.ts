@@ -15,7 +15,7 @@ const OrderSchema  = new mongoose.Schema({
     totalPrice:Number,
     process:{
         type:String,
-        enum:['ordered', 'inprogress','delivered'],
+        enum:['waiting', 'inprogress','delivered'],
         default:'inprogress'
     },  
     createdDate:Date,
@@ -23,7 +23,12 @@ const OrderSchema  = new mongoose.Schema({
     khoroo:String,
     apartment:String,
     phone:Number,
-    desc:String
+    desc:String,
+    payment:{
+      type:String,
+      enum:['Not Paid', 'Paid'],
+      default:'Not Paid'
+    }
 })
 const orderModel = mongoose.model('order',OrderSchema)
 export {orderModel}

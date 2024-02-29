@@ -32,6 +32,7 @@ export default function CardModal({ onClick }: any) {
     router.push("/order");
     localStorage.setItem("data", JSON.stringify(foodData));
   };
+  console.log(foodData)
   return (
     <Stack className="bg-black bg-opacity-70 w-full h-full fixed top-0  z-10 flex justify-center items-center">
       <Stack className="flex justify-between flex-col p-5 items-center h-full fixed top-0 right-0  bg-white ">

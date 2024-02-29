@@ -18,7 +18,7 @@ const historyPage = () => {
     `http://localhost:8000/userOrder/${code.payload.id}`,
     fetcher
   );
-
+console.log(data)
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const year = date.getFullYear();
@@ -38,6 +38,8 @@ const historyPage = () => {
 
               </Box>
               <Typography>{formatDate(foodItem.createdDate)}</Typography>
+              <Typography>{foodItem.process}</Typography>
+
             </Box>
             <Box>
 
@@ -51,7 +53,10 @@ const historyPage = () => {
           <Stack>
                 <Box>
                   <hr />
-              <Typography>{item.foods[0].name}</Typography>
+                  {item.foods.map(e=>(
+                    <Typography>{e.name}</Typography>
+                  ))}
+        
               </Box>
           </Stack>
         ))}

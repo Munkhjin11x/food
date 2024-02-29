@@ -18,7 +18,7 @@ const AddFoodModal = () => {
     "http://localhost:8000/category",
     fetcher
   );
-
+  
   const addFoodHandler = async () => {
     try {
       const response = await axios.post("http://localhost:8000/foods/food", food);

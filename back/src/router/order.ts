@@ -5,6 +5,6 @@ import { createOrder, getAllOrders, getOrderById, updateOrder, deleteOrder, getO
 
 const order = express.Router();
 order.route('/order').post(createOrder).get(getAllOrders)
-order.route('order/:id').get(getOrderById).put(updateOrder).delete(deleteOrder)
+order.route('/order/:id').get(getOrderById).put(updateOrder).delete(deleteOrder)
 order.route('/userOrder/:userId').get(getOrderByUserId)
 export { order };
