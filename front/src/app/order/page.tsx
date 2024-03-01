@@ -15,7 +15,7 @@ function order() {
     <OrderProvider>
       <Stack display={"flex"} justifyContent={"center"}>
         <Navbar />
-        <Box sx={{ display: "flex", justifyContent: "space-around", }}>
+        <Box sx={{ display: "flex", justifyContent:'center' ,gap:"300px" }}>
           <OrderDetail />
           <OrderFood data={store} />
         </Box>

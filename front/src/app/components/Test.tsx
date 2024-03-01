@@ -5,6 +5,7 @@ import { OrderContext } from "./OrderContext";
 import { useRouter } from "next/navigation";
 import cookies from 'js-cookie'
 import jwt from "jsonwebtoken";
+import Step from "./Step";
 function OrderFood({ data }: any) {
   const order = useContext(OrderContext);
   const router = useRouter()
@@ -18,6 +19,8 @@ function OrderFood({ data }: any) {
         khoroo: order.orderDetails.khoroo,
         apartment: order.orderDetails.apartment,
         district: order.orderDetails.district,
+        phone:order.orderDetails.phone,
+        desc:order.orderDetails.desc,
         orderNumber: generateOrderNumber(),
         totalPrice: getTotalPrice(),
         createdDate: new Date(),
@@ -51,12 +54,13 @@ function OrderFood({ data }: any) {
   };
 
   return (
-    <Stack sx={{ width: '432px', padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between   ' }}>
-      <Box>
+    <Stack sx={{}} padding={'24px'} spacing={2} >
+      <Step children={'Хаягийн мэдээлэл оруулах'} step={'Алхам 2'} />
+      <Card sx={{width:'432px ', display:'flex',flexDirection:'column',gap:'20px',alignItems:'center', padding:'20px'}}>
         {data.map((foodItem) => (
           <Card
             key={foodItem.selectedFood.name}
-            sx={{ width: "384px", display: "flex", gap: "20px", padding: "10px" }}
+            sx={{ width: "384px", display: "flex", gap: "20px",padding:'16px'}}
           >
             <img
               className=" w-[245px] h-[150px]"
@@ -70,19 +74,26 @@ function OrderFood({ data }: any) {
               }}
             >
               <Box>
-                <Typography>{foodItem.selectedFood.name} </Typography>
-                <Typography>{foodItem.selectedFood.price}₮ </Typography>
-                <Typography>{foodItem.selectedFood.ingredient}</Typography>
+                <Typography sx={{fontSize:'18px',fontWeight:'600'}}>{foodItem.selectedFood.name} </Typography>
+                <Typography sx={{fontSize:'18px',fontWeight:'600',color:'#18BA51'}}>{foodItem.selectedFood.price}₮ </Typography>
+                <Typography  sx={{fontSize:'16px',fontWeight:'400',color:'#767676'}}>{foodItem.selectedFood.ingredient}</Typography>
               </Box>
             </Box>
+            
           </Card>
-        ))}</Box>
+     
+        ))}
+                   <Box sx={{display:'flex',justifyContent:'center',gap:'40px',padding:'16px'}}>
+   <Box>
 
-      <Box>
-        <Typography>Нийт төлөх дүн</Typography>
-        {getTotalPrice()}₮<Typography></Typography>
-        <Button onClick={Orderhandler}>Захиалах</Button>
-      </Box>
+   <Typography>Нийт төлөх дүн</Typography>
+                {getTotalPrice()}₮<Typography></Typography>
+   </Box>
+                <Button className=" bg-[#18BA51]" sx={{paddingX:'16px',paddingY:'8px',color:'white'}} onClick={Orderhandler}>Захиалах</Button>
+              </Box>
+        </Card>
+
+
     </Stack>
   );
 }

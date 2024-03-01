@@ -35,7 +35,7 @@ export default function CategoryMenu({
     <Stack>
       <Stack display={"flex"} justifyContent={"center"} direction="row" gap={2}>
         {food
-          // .filter((f) => f.name !== "Sales")
+          .filter((f) => f.name !== "Sales")
           .map((f: any) => (
             <Button
               key={f.id}
@@ -54,12 +54,21 @@ export default function CategoryMenu({
             </Button>
           ))}
       </Stack>
+      {modal && (
+        <FoodModal
+          onClick={modalHandle}
+          food={data}
+          foodCardId={selectedFoodCardId}
+        />
+      )}
       <Box
         sx={{
+          paddingX:'240px',
           display: "flex",
           marginTop: "100px",
           flexWrap: "wrap",
           justifyContent: "center",
+          gap:'20px'
         }}
       >
         {!selectedCategory &&
@@ -83,13 +92,6 @@ export default function CategoryMenu({
             />
           ))}
       </Box>
-      {modal && (
-        <FoodModal
-          onClick={modalHandle}
-          food={data}
-          foodCardId={selectedFoodCardId}
-        />
-      )}
     </Stack>
   );
 }

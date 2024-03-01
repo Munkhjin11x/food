@@ -26,7 +26,7 @@ function FoodModal({ foodCardId, food, onClick }: any) {
 
   return (
     <Stack className="bg-black bg-opacity-70 w-full h-full fixed top-0  z-10 flex justify-center items-center">
-      <Box className="flex flex-col p-5  mt-[111px] items-center  bg-white ">
+      <Box className="flex flex-col p-5  mt-[111px] items-center rounded-lg  bg-white ">
         {selectedFood && (
           <Stack padding={5} display={"flex"} direction={"row"} gap={5}>
             <img className="w-[500px] h-[500px]" src={selectedFood.image} />
@@ -59,7 +59,7 @@ function FoodModal({ foodCardId, food, onClick }: any) {
               </Box>
               <Box>
                 <Typography> Тоо</Typography>
-                <Box display={"flex"} gap={15}>
+                <Box sx={{marginBottom:'50px'}} display={"flex"} gap={15}>
                   <Button
                     className=" bg-[#18BA51] text-white"
                     onClick={decrementCount}

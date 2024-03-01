@@ -19,7 +19,7 @@ export default function Category({ food, isLoading }: any) {
     setModal(!modal);
   };
   return (
-    <Box key={food._id} sx={{ paddingX: "240px", marginY: "120px" }}>
+    <Box key={food._id} sx={{  marginY: "120px" }}>
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
         <Box
           sx={{
@@ -27,6 +27,7 @@ export default function Category({ food, isLoading }: any) {
             alignItems: "center",
             justifyContent: "center",
             gap: "20px",
+            paddingX:'240px'
           }}
         >
           <WorkspacesIcon sx={{ color: "#18BA51" }} />
@@ -40,6 +41,8 @@ export default function Category({ food, isLoading }: any) {
             fontWeight: "400",
             color: "#18BA51",
             cursor: "pointer",
+            paddingX:'240px'
+
           }}
         >
           Бүгдийг sхарах{" "}
@@ -60,7 +63,7 @@ export default function Category({ food, isLoading }: any) {
       >
         {isLoading
           ? "loading"
-          : food.foodId.map((e: any) => {
+          : food.foodId.slice(0,4).map((e: any) => {
               return (
                 <FoodCard
                   onClick={() => modalHandle(e._id)}

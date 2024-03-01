@@ -2,11 +2,10 @@ import { Box, Stack, Typography } from '@mui/material'
 import React from 'react'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
-function Step({children,step,all}:any) {
+function Step2({children,step,all,order,process}:any) {
   return (
     <Stack display={'flex'} direction={'row'} alignItems={'center'}>
       {all ? <CheckCircleIcon sx={{width:'48px',height:'48px',color:'#18BA51'}}  /> :<RadioButtonCheckedIcon sx={{width:'48px',height:'48px',}}/> }
-{/* <RadioButtonCheckedIcon  color:all ? '#18BA51':'#0468C8'}}/> */}
          <Box>
         <Typography>
     {step}
@@ -14,8 +13,14 @@ function Step({children,step,all}:any) {
 <Typography>
     {children}
 </Typography>
+<Typography>
+
+</Typography>
+<Typography>
+         Захиалга#<span>{order}</span> 
+</Typography>
 <Typography sx={{color:all ? '#18BA51':'#0468C8'}}>
-{all?'Оруулсан' :'Хүлээгдэж байна'}
+<span>{process}</span> 
 </Typography>
 
         </Box>
@@ -23,4 +28,4 @@ function Step({children,step,all}:any) {
   )
 }
 
-export default Step
+export default Step2
