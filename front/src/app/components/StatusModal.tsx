@@ -9,7 +9,7 @@ function StatusModal({selectedId}:any) {
         try {
 
             const res = await axios.put(`http://localhost:8000/order/${selectedId}`,{
-                process:selected
+                status:selected
             })
         } catch (error) {
             console.log(error)
@@ -25,7 +25,7 @@ function StatusModal({selectedId}:any) {
   <Box>
     <Select value={selected} onChange={ (e)=> setSelected(e.target.value)}>
         {progress.map((e)=>(
-            <MenuItem value={e}  onClick={handle}> 
+            <MenuItem value={e} key={e} onClick={handle}> 
             {e}
             </MenuItem>
         ))}

@@ -6,9 +6,9 @@ import { user } from "./router/user";
 import { food } from "./router/food";
 import { category } from "./router/category";
 import { order } from "./router/order";
+connectDataBase()
 dotenv.config()
-const start = () => {
-    connectDataBase()
+
     const app = express()
 
     app.use(express.json())
@@ -28,5 +28,3 @@ const start = () => {
     app.listen(PORT, () => {
         console.log(`SERVER ON , ${PORT}`);
     })
-}
-start()
