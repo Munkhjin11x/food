@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/index.ts"
+    "dev": "nodemon src/index.ts",
+    "build": "rm -rf dist/ && npx tsc -p tsconfig.json",
+    "run-dist": "node ./dist/src/index.js"
   },
   "keywords": [],
   "author": "",
