@@ -8,7 +8,6 @@ import { category } from "./router/category";
 import { order } from "./router/order";
 connectDataBase()
 dotenv.config()
-
     const app = express()
 
     app.use(express.json())
